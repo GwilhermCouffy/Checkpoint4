@@ -6,7 +6,6 @@ use App\Entity\User;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class UserFixtures extends Fixture
 {
@@ -16,7 +15,8 @@ class UserFixtures extends Fixture
     }
 
     public const USERS = [
-        ["Gwilherm", "prout", ['ROLE_ADMIN']]
+        ["Gwilherm", "1234", ['ROLE_ADMIN']],
+        ["Richard", "1234", ['ROLE_USER']],
     ];
     
     public function load(ObjectManager $manager): void

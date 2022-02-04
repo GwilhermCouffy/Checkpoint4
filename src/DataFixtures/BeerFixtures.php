@@ -12,7 +12,11 @@ class BeerFixtures extends Fixture implements DependentFixtureInterface
 {
 
     public const BEERS = [
-        ["Leffe", "Blonde", "Belgique", 6.6, "assets/images/leffe_blonde.jpg"],
+        ["Leffe Blonde", "Blonde", "Belgique", 6.6, "/build/images/leffe_blonde.jpg"],
+        ["Cuvée des Trolls", "Blonde", "Belgique", 7.5, "/build/images/cuvee_des_trolls.jpg"],
+        ["Chouffe", "Blonde", "Belgique", 8, "/build/images/chouffe.jpg"],
+        ["Grimbergen", "Rouge", "Belgique", 5.5, "/build/images/grimbergen_ruby.jpg"],
+        ["Goudale", "Blonde", "France", 7.2, "/build/images/goudale.jpg"],
     ];
 
     public function load(ObjectManager $manager): void
@@ -27,6 +31,14 @@ class BeerFixtures extends Fixture implements DependentFixtureInterface
             $beer->addUser($this->getReference("Gwilherm"));
             $manager->persist($beer);
         }
+        $beer = new Beer();
+            $beer->setName("Pilsner Urquell");
+            $beer->setType("Blonde");
+            $beer->setCountry("Tcheque");
+            $beer->setAlcoholLevel("15.6");
+            $beer->setPicture("/build/images/goudale.jpg");
+            $beer->addUser($this->getReference("Richard"));
+            $manager->persist($beer);
         $manager->flush();
     }
 

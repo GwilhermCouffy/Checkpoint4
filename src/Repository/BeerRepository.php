@@ -47,4 +47,24 @@ class BeerRepository extends ServiceEntityRepository
         ;
     }
     */
+//     public function nonDrinkBeers(int $id) {
+
+//         $queryBuilder = $this->createQueryBuilder('b')
+//             ->where('b.name LIKE :name')
+//             ->orderBy('b.name', 'ASC')
+
+//             ->join('b.users', 'u')
+//             ->andWhere('u.id !='.$id)
+//             ->getQuery();
+
+//             dd($queryBuilder->getResult());
+//         return $queryBuilder->getResult();
+
+//         // $em = $this->getEntityManager();
+//         // $query = $em->createQuery("SELECT id, name FROM App\Entity\Beer b INNER JOIN App\Entity\User u WHERE u.id !=".$id." ORDER BY name");
+
+
+//         // return $query->execute();
+//     }
+// }
 }

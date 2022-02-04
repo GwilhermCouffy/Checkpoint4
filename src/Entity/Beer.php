@@ -24,7 +24,7 @@ class Beer
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
-    #[ORM\Column(type: 'float', length: 255)]
+    #[ORM\Column(type: 'float')]
     private $alcoholLevel;
 
     #[ORM\Column(type: 'string', length: 255)]

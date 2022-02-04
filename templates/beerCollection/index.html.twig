@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Beer index{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1>How Many different beers I've ever drink ?</h1>
+    </div>
+
+    <h2><span class="beerNumber">{{ beersConsumedNumber }}</span> bières différentes consommées!</h2>
+
+    {# <form action="{{ path('ajoutBiere') }}" method="post">
+        <select class="btn-ajout-biere" name="ajout-biere" id="ajout-biere">
+            {% for b in otherBeers %}
+                <option value="{{b.id}}">{{b.name}}</option>
+            {% endfor %}
+        </select>
+    </form> #}
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Photo</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Pays</th>
+                <th>Degré d'alcool</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for beer in Userbeers %}
+            <tr>
+                <td><img src={{ beer.picture }}></img></td>
+                <td>{{ beer.name }}</td>
+                <td>{{ beer.type }}</td>
+                <td>{{ beer.country }}</td>
+                <td>{{ beer.alcoholLevel }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('beer_new') }}">Add new beer</a>
+{% endblock %}
